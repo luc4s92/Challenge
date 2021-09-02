@@ -6,6 +6,13 @@ import '../app.css'
 
 export default function Budget() {
 
+    const [budget, setBudget] = useState({
+        concept: '',
+        amount: 0,
+        date: new Date().toISOString().toString(),
+        type:''
+    })
+
     const [budgets, setBudgets] = useState([])
 
     useEffect(() =>{
@@ -26,7 +33,7 @@ export default function Budget() {
             <BudgetList budgets={budgets}/>
           </div>
           <div className="right">
-              <BudgetForm/>
+              <BudgetForm budget={budget} setBudget={setBudget} />
           </div>
       </div>
     </>
