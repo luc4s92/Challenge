@@ -8,17 +8,9 @@ import '../app.css'
 export default function Budget() {
   
     const url =`http://localhost:9000/api/`;
-
-    /*const [budget, setBudget] = useState({
-        concept: '',
-        amount: 0,
-        date: new Date().toISOString().toString(),
-        type:''
-    }) */
-    const [dataToEdit, setDataToEdit] = useState(null)
-
-    const [budgets, setBudgets] = useState([])
-
+    const [budgets, setBudgets] = useState([]);
+    const [dataToEdit, setDataToEdit] = useState(null);
+    
     useEffect(() =>{
         const getBudgets = ()=>{
           Axios.get(url)
@@ -37,7 +29,6 @@ export default function Budget() {
     }
 
     const updateBudget=(budget) =>{
-
       Axios.put(url+budget.id ,{     
         concept: budget.concept,
         amount: budget.amount,
@@ -45,9 +36,7 @@ export default function Budget() {
     }
 
     const deleteBudget = (id)=>{
-      console.log(id)
       Axios.delete(url+id)
-      console.log('borrado')
     }
 
   return (
