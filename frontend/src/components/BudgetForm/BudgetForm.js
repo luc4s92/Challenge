@@ -1,10 +1,15 @@
 import React from 'react'
 
+const initialForm = {
+    id: null,
+    concept: "",
+    amount: 0,
+    date: '',
+    type:''
+  };
 
-export default function BudgetForm({budget, setBudget}){
+export default function BudgetForm({budget, setBudget, createBudget}){
 
-  //  const [form, setForm] = useState({})
-   // const [date, setDate] = useState(new Date().toLocaleDateString())
     const handleChange = (e)=>{
         setBudget({
             ...budget,
@@ -15,35 +20,21 @@ export default function BudgetForm({budget, setBudget}){
     const handleSubmit = (e)=>{
         e.preventDefault()
 
-        
-    
         if(budget.concept === '' || budget.amount === 0 || budget.type ===''){
             alert('Todos los campos son obligatorios')
             return
         }
         let date = new Date().toISOString().toString()
-        //let dateS = date.toString()
-        console.log('Fecha en string',date)
+
         setBudget({
             ...budget,
             [budget.date] : date
             })
-        console.log(budget.date)
-        const requetInit ={
-            method: 'POST',
-            headers:{'Content-Type':'application/json'},
-            body: JSON.stringify(budget)
-        }
-        
-        fetch('http://localhost:9000/api', requetInit)
-            .then(res => res.json())
-            .then(res => console.log(res))
-        console.log(budget)
+        createBudget(budget)
     }
 
     return(
         <>
-            <h2>Alta formulario</h2>
             <form onSubmit={handleSubmit}>
                 <label>Concept</label>
                 <input
