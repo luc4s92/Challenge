@@ -25,7 +25,7 @@ select{
   background-color: transparent;
 }
 
-button,
+.button,
 input[type="submit"],
 input[type="reset"]{
   border: thin solid #444;
@@ -66,6 +66,38 @@ table{
   border-spacing: 0;
   border-collapse: collapse;
   width: 100%;
+}
+
+.rounded-button {
+  width: 30px;
+  height: 30px;
+  margin-left: 3px;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.danger-btn{
+  background-color: red;
+}
+.edit-btn{
+  background-color: #0f52ba;
+}
+
+.edit-btn:hover{
+  background-color: transparent;
+  color: #0f52ba;
+}
+
+.danger-btn:hover {
+  background-color: transparent;
+  color: red;
 }
 
 th,

@@ -81,13 +81,13 @@ export default function BudgetForm({
             <label>Transaction Type</label>
             <select name="type" onChange={handleChange}>
               <option value="">------</option>
-              <option value="entry">Entry</option>
-              <option value="exit">Exit</option>
+              <option value="Entry">Entry</option>
+              <option value="Exit">Exit</option>
             </select>
           </div>
         )}
 
-        <input type="submit" />
+        <input className="button" type="submit" />
       </form>
     </>
   );

@@ -14,7 +14,7 @@ ul{
 }
 
 .NavbarItems{
-    background-color: crimson;
+    background-color: #246355;
     display: flex;
     justify-content: space-between;
     align-items: center;

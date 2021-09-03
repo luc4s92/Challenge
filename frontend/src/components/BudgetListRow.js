@@ -9,8 +9,8 @@ const BudgetListRow = ({ budget, setDataToEdit, deleteBudget }) => {
       <td data-label="Date">{budget.date}</td>
       <td data-label="Type">{budget.type}</td>
       <td data-label="Actions">
-        <button onClick={() => setDataToEdit(budget)}>Edit</button>
-        <button onClick={() => deleteBudget(id)}>Delete</button>
+        <button className="rounded-button edit-btn" onClick={() => setDataToEdit(budget)}><i className="fas fa-edit"></i></button>
+        <button className="rounded-button danger-btn" onClick={() => deleteBudget(id)}><i className="fas fa-trash-alt"></i></button>
       </td>
     </tr>
   );
