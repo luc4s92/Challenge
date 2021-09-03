@@ -80,7 +80,7 @@ table{
   border-radius: 50%;
   border: none;
   text-decoration: none;
-  transition: background 0.2s;
+  transition: ease 0.2s;
 }
 
 .danger-btn{
@@ -88,11 +88,13 @@ table{
 }
 .edit-btn{
   background-color: #0f52ba;
+  transition: ease 0.2s
 }
 
 .edit-btn:hover{
   background-color: transparent;
   color: #0f52ba;
+  transition: ease 0.2s
 }
 
 .danger-btn:hover {
