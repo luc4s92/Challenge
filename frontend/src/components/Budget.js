@@ -7,14 +7,15 @@ import '../app.css'
 
 export default function Budget() {
   
-    const url ='http://localhost:9000/api';
+    const url =`http://localhost:9000/api/`;
 
-    const [budget, setBudget] = useState({
+    /*const [budget, setBudget] = useState({
         concept: '',
         amount: 0,
         date: new Date().toISOString().toString(),
         type:''
-    })
+    }) */
+    const [dataToEdit, setDataToEdit] = useState(null)
 
     const [budgets, setBudgets] = useState([])
 
@@ -24,20 +25,30 @@ export default function Budget() {
           .then((res) =>setBudgets(res.data))
         }
         getBudgets()
-    },[budget])
+    },[budgets])
 
     const createBudget =(budget) =>{
-
       Axios.post(url,{
         concept: budget.concept,
         amount: budget.amount,
         date: budget.date,
         type: budget.type
       })
-      console.log('se agrego')
-
     }
 
+    const updateBudget=(budget) =>{
+
+      Axios.put(url+budget.id ,{     
+        concept: budget.concept,
+        amount: budget.amount,
+      })
+    }
+
+    const deleteBudget = (id)=>{
+      console.log(id)
+      Axios.delete(url+id)
+      console.log('borrado')
+    }
 
   return (
     <>
@@ -46,11 +57,14 @@ export default function Budget() {
         <article className="grid-1-2">
             <BudgetList 
               budgets={budgets}
+              setDataToEdit={setDataToEdit}
+              deleteBudget={deleteBudget}
             />
-            <BudgetForm 
-              budget={budget} 
-              setBudget={setBudget} 
+            <BudgetForm
+              updateBudget={updateBudget} 
               createBudget={createBudget}
+              dataToEdit={dataToEdit}
+              setDataToEdit={setDataToEdit} 
             />
           </article>
       </div>

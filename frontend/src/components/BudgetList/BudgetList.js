@@ -3,7 +3,7 @@ import BudgetListRow from "../BudgetListRow";
 
 import './BudgetList.css'
 
-export const BudgetList = ({budgets}) => {
+export const BudgetList = ({budgets, setDataToEdit, deleteBudget}) => {
   return (
     < >
       <table>
@@ -19,6 +19,8 @@ export const BudgetList = ({budgets}) => {
         <tbody>
           {budgets.map((budget) =>(
             <BudgetListRow
+              setDataToEdit={setDataToEdit}
+              deleteBudget={deleteBudget}
               key={budget.id}
               budget={budget}
             />
