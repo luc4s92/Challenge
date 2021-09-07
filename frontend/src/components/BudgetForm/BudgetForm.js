@@ -4,7 +4,7 @@ const initialForm = {
   id: null,
   concept: "",
   amount: 0,
-  date: new Date().toISOString().toString(),
+  date: new Date().toISOString().slice(0, 19).replace('T', ' '),
   type: "",
 };
 
@@ -38,14 +38,10 @@ export default function BudgetForm({
       alert("Todos los campos son obligatorios");
       return;
     }
-    let date = new Date().toISOString().toString();
-
+    
     if (form.id === null) {
-      setForm({
-        ...form,
-        [form.date]: date,
-      });
-      createBudget(form);
+      let auxDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
+      createBudget(form,auxDate);
     } else {
       updateBudget(form);
     }
