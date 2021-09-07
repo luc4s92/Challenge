@@ -4,7 +4,8 @@ import { BudgetList } from "./BudgetList/BudgetList";
 import Axios from 'axios';
 
 import '../app.css'
-const url =`http://localhost:9000/api/`;
+const url =`http://localhost:9000/api/`
+
 export default function Budget() {
   
     
@@ -39,21 +40,30 @@ export default function Budget() {
       Axios.delete(url+id)
     }
 
+   
   return (
     <>
       <div >
         <h1 className="h1">BudgetList</h1>
         <article className="grid-1-2">
             <BudgetList 
-              budgets={budgets}
+              budgets={budgets.filter(el => el.type === "Entry")}
               setDataToEdit={setDataToEdit}
               deleteBudget={deleteBudget}
+              filter="Entry"
             />
+          
             <BudgetForm
               updateBudget={updateBudget} 
               createBudget={createBudget}
               dataToEdit={dataToEdit}
               setDataToEdit={setDataToEdit} 
+            />
+              <BudgetList 
+              budgets={budgets.filter(el => el.type === "Exit")}
+              setDataToEdit={setDataToEdit}
+              deleteBudget={deleteBudget}
+              filter="Exit"
             />
           </article>
       </div>

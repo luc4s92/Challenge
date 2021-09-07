@@ -109,6 +109,20 @@ td{
   border-bottom: thin solid #dedede;
 }
 
+.type,.total{
+  margin-left: 10px;
+  padding: 10px 0;
+}
+
+.type{
+  font-size: 25px;
+}
+
+.total{
+  text-align: right;
+  color: #246355;
+}
+
 @media screen and (min-width: 1024px){
   .grid-1-2 {
       display: grid;
