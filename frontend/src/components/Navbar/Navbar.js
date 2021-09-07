@@ -2,9 +2,6 @@ import React, {  useState } from 'react'
 
 import './Navbar.css'
 
-//class Navbar extends Component {
-   
-//}
 
 function Navbar({brand}){
     const [showlinks, setShowLinks] = useState(false)    
@@ -16,9 +13,6 @@ function Navbar({brand}){
                     <ul className="nav-links" id={showlinks ? "hidden" : ""} >
                         
                         <li><a href="/#">Home</a></li>
-                        <li><a href="/#">Feedback</a></li>
-                        <li><a href="/#">About Us</a></li>
-                        <li><a href="/#">Contact</a></li>
                         
                     </ul>
                     <button onClick={()=> setShowLinks(!showlinks)} className="menu-mobile">
